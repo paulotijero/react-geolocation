@@ -1,8 +1,16 @@
 import React from "react";
 import { render } from "react-dom";
 
+import LeafleMap from "./views/leaflet-map";
+import "./main.css";
+
 function App() {
-  return <h1>Hola mundo</h1>;
+  return (
+    <main>
+      <LeafleMap />
+    </main>
+  );
 }
 
-render(<App />, document.getElementById("root"));
+const $root = document.getElementById("root");
+render(<App />, $root);
