@@ -1,5 +1,12 @@
+/** @jsx jsx */
 import React from "react";
+import { jsx } from "@emotion/core";
 import GoogleMapsApiLoader from "google-maps-api-loader";
+
+const container = {
+  height: "90vh",
+  width: "100vw"
+};
 
 function GoogleMap() {
   const [latitude, setLatitude] = React.useState(0);
@@ -42,15 +49,7 @@ function GoogleMap() {
     });
   }, [googleMap, mapContainerRef]);
 
-  return (
-    <div
-      style={{
-        height: "90vh",
-        width: "100vw"
-      }}
-      ref={mapContainerRef}
-    />
-  );
+  return <div css={container} ref={mapContainerRef} />;
 }
 
 export default GoogleMap;

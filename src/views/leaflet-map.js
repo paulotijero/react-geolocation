@@ -1,5 +1,13 @@
+/** @jsx jsx */
 import React from "react";
+import { jsx } from "@emotion/core";
 import { Map, TileLayer, Marker } from "react-leaflet";
+
+const container = {
+  height: "90vh",
+  width: "100vw",
+  margin: "0 auto"
+};
 
 function LeafledMap() {
   const [latitude, setLatitude] = React.useState(0);
@@ -14,7 +22,7 @@ function LeafledMap() {
   }, [setLatitude, setLongitude]);
 
   return (
-    <Map center={[latitude, longitude]} zoom={15}>
+    <Map css={container} center={[latitude, longitude]} zoom={15}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors | Made for Codeable'
