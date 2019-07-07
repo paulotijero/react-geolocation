@@ -2,14 +2,26 @@
 import { jsx } from "@emotion/core";
 import { Link } from "@reach/router";
 
+const container = {
+  overflow: "auto",
+  height: "100%"
+};
+
 const ul = {
   display: "flex",
+  alignItems: "center",
+  width: "300px",
+  height: "100%",
   margin: "0",
   padding: "0",
   listStyle: "none",
   "& li": {
     margin: "0 15px",
-    fontSize: "25px"
+    fontSize: "25px",
+    "@media (max-width: 768px)": {
+      fontSize: "22px",
+      fontWeight: "bold"
+    }
   }
 };
 
@@ -26,7 +38,7 @@ const link = {
 
 function Menu() {
   return (
-    <nav>
+    <nav css={container}>
       <ul css={ul}>
         <li>
           <Link to="/" css={link}>

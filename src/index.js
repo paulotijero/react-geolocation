@@ -18,11 +18,11 @@ function App() {
   return (
     <>
       <Global styles={global} />
+      <Header />
       <Router>
         <LeafleMap path="/" />
         <GoogleMap path="/google-map" />
       </Router>
-      <Header />
     </>
   );
 }

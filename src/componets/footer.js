@@ -6,6 +6,11 @@ const container = {
   marginRight: "20px",
   fontWeight: "unset",
   fontSize: "16px",
+  "& span": {
+    "@media (max-width: 768px)": {
+      display: "none"
+    }
+  },
   "&:hover a": {
     color: "#FF5722"
   },
