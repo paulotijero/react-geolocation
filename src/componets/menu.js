@@ -45,11 +45,6 @@ function Menu() {
             Leaflet Map
           </Link>
         </li>
-        <li>
-          <Link to="/google-map" css={link}>
-            Google Map
-          </Link>
-        </li>
       </ul>
     </nav>
   );

@@ -4,7 +4,6 @@ import { Router } from "@reach/router";
 import { Global } from "@emotion/core";
 
 import LeafleMap from "./views/leaflet-map";
-import GoogleMap from "./views/google-map";
 import Header from "./componets/header";
 
 const global = {
@@ -21,7 +20,6 @@ function App() {
       <Header />
       <Router>
         <LeafleMap path="/" />
-        <GoogleMap path="/google-map" />
       </Router>
     </>
   );
