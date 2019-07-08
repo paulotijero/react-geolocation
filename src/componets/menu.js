@@ -10,7 +10,7 @@ const container = {
 const ul = {
   display: "flex",
   alignItems: "center",
-  width: "300px",
+  minWidth: "300px",
   height: "100%",
   margin: "0",
   padding: "0",
