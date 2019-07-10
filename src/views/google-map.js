@@ -12,7 +12,7 @@ function GoogleMap() {
   const [latitude, setLatitude] = React.useState(0);
   const [longitude, setLongitude] = React.useState(0);
   const [googleMap, setGoogleMap] = React.useState(null);
-  const API_KEY = "AIzaSyAv78f8NYP2cdwJmoZLrw7FFsSX5gGD8CE";
+  const apiKey = "AIzaSyAv78f8NYP2cdwJmoZLrw7FFsSX5gGD8CE";
   const mapContainerRef = React.useRef(null);
 
   React.useEffect(() => {
@@ -24,7 +24,7 @@ function GoogleMap() {
   }, [setLatitude, setLongitude]);
 
   React.useEffect(() => {
-    GoogleMapsApiLoader({ API_KEY }).then(google => {
+    GoogleMapsApiLoader({ apiKey }).then(google => {
       setGoogleMap(google);
     });
   }, []);

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import React from "react";
 import { jsx } from "@emotion/core";
-import { Map, TileLayer, Marker } from "react-leaflet";
+import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 const container = {
   height: "90vh",
@@ -27,7 +27,14 @@ function LeafledMap() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors | Made for Codeable'
       />
-      <Marker position={[latitude, longitude]} />
+      <Marker position={[latitude, longitude]}>
+        <Popup>
+          You are here!
+          <span role="img" aria-label="emoji dot position">
+            🕵 ️
+          </span>
+        </Popup>
+      </Marker>
     </Map>
   );
 }
