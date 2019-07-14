@@ -28,27 +28,34 @@ const ul = {
 const link = {
   textDecoration: "none",
   color: "#FFF",
-  borderBottom: "2px solid transparent",
   transition: "all 0.25s ease-in-out",
   "&:hover": {
-    color: "#FF5722",
     borderBottom: "2px solid currentColor"
   }
 };
+
+function ActiveLink(props) {
+  function getProps({ isCurrent }) {
+    return {
+      style: {
+        color: isCurrent ? "#FF5722" : "",
+        borderBottom: isCurrent ? "2px solid currentColor" : ""
+      }
+    };
+  }
+
+  return <Link {...props} getProps={getProps} css={link} />;
+}
 
 function Menu() {
   return (
     <nav css={container}>
       <ul css={ul}>
         <li>
-          <Link to="/" css={link}>
-            Leaflet Map
-          </Link>
+          <ActiveLink to="/">Leaflet Map</ActiveLink>
         </li>
         <li>
-          <Link to="/google-map" css={link}>
-            Google Map
-          </Link>
+          <ActiveLink to="/google-map">Google Map</ActiveLink>
         </li>
       </ul>
     </nav>
