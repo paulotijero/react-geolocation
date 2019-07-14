@@ -3,25 +3,20 @@ import React from "react";
 import { jsx } from "@emotion/core";
 import GoogleMapsApiLoader from "google-maps-api-loader";
 
+import LatitudeContext from "../contexts/latitude";
+import LongitudeContext from "../contexts/longitude";
+
 const container = {
   height: "90vh",
   width: "100vw"
 };
 
 function GoogleMap() {
-  const [latitude, setLatitude] = React.useState(0);
-  const [longitude, setLongitude] = React.useState(0);
+  const latitude = React.useContext(LatitudeContext);
+  const longitude = React.useContext(LongitudeContext);
   const [googleMap, setGoogleMap] = React.useState(null);
   const apiKey = "AIzaSyAv78f8NYP2cdwJmoZLrw7FFsSX5gGD8CE";
   const mapContainerRef = React.useRef(null);
-
-  React.useEffect(() => {
-    const watchId = navigator.geolocation.watchPosition(({ coords }) => {
-      setLatitude(coords.latitude);
-      setLongitude(coords.longitude);
-    });
-    return () => navigator.geolocation.clearWatch(watchId);
-  }, [setLatitude, setLongitude]);
 
   React.useEffect(() => {
     GoogleMapsApiLoader({ apiKey }).then(google => {
