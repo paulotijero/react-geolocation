@@ -3,6 +3,8 @@ import React from "react";
 import { jsx } from "@emotion/core";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
+import PositionContext from "../contexts/position";
+
 const container = {
   height: "90vh",
   width: "100vw",
@@ -10,16 +12,9 @@ const container = {
 };
 
 function LeafledMap() {
-  const [latitude, setLatitude] = React.useState(0);
-  const [longitude, setLongitude] = React.useState(0);
-
-  React.useEffect(() => {
-    const watchId = navigator.geolocation.watchPosition(({ coords }) => {
-      setLatitude(coords.latitude);
-      setLongitude(coords.longitude);
-    });
-    return () => navigator.geolocation.clearWatch(watchId);
-  }, [setLatitude, setLongitude]);
+  const position = React.useContext(PositionContext);
+  const latitude = position[0];
+  const longitude = position[1];
 
   return (
     <Map css={container} center={[latitude, longitude]} zoom={15}>
