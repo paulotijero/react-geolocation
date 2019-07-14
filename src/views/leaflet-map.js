@@ -3,8 +3,7 @@ import React from "react";
 import { jsx } from "@emotion/core";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
-import LatitudeContext from "../contexts/latitude";
-import LongitudeContext from "../contexts/longitude";
+import PositionContext from "../contexts/position";
 
 const container = {
   height: "90vh",
@@ -13,8 +12,9 @@ const container = {
 };
 
 function LeafledMap() {
-  const latitude = React.useContext(LatitudeContext);
-  const longitude = React.useContext(LongitudeContext);
+  const position = React.useContext(PositionContext);
+  const latitude = position[0];
+  const longitude = position[1];
 
   return (
     <Map css={container} center={[latitude, longitude]} zoom={15}>
