@@ -6,7 +6,7 @@ import { Global } from "@emotion/core";
 import LeafleMap from "./views/leaflet-map";
 import GoogleMap from "./views/google-map";
 import Header from "./componets/header";
-import { Provider as PositionProvider } from "./contexts/position";
+import { PositionProvider } from "./contexts/position";
 
 const global = {
   body: {
@@ -16,17 +16,8 @@ const global = {
 };
 
 function App() {
-  const [position, setPosition] = React.useState([0, 0]);
-
-  React.useEffect(() => {
-    const watchId = navigator.geolocation.watchPosition(({ coords }) => {
-      setPosition([coords.latitude, coords.longitude]);
-    });
-    return () => navigator.geolocation.clearWatch(watchId);
-  }, [setPosition]);
-
   return (
-    <PositionProvider value={position}>
+    <PositionProvider>
       <Global styles={global} />
       <Header />
       <Router>
