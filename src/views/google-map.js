@@ -3,6 +3,7 @@ import React from "react";
 import { jsx } from "@emotion/core";
 import GoogleMapsApiLoader from "google-maps-api-loader";
 
+import RequestLocation from "../componets/request-location";
 import { PositionContext } from "../contexts/position";
 
 const container = {
@@ -35,14 +36,24 @@ function GoogleMap() {
       map: map
     });
     const InfoWindow = new googleMap.maps.InfoWindow({
-      content: `<div id="content"> You are Here! 🕵️</div>`
+      content: `<div id="content"> You are Here! <span role="img" aria-label="emoji dot position">
+      🕵 ️
+    </span></div>`
     });
     marker.addListener("click", () => {
       InfoWindow.open(map, marker);
     });
   }, [googleMap, mapContainerRef]);
 
-  return <div css={container} ref={mapContainerRef} />;
+  return (
+    <>
+      {position.latitude === 0 ? (
+        <RequestLocation />
+      ) : (
+        <div css={container} ref={mapContainerRef} />
+      )}
+    </>
+  );
 }
 
 export default GoogleMap;
