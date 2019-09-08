@@ -3,6 +3,7 @@ import React from "react";
 import { jsx } from "@emotion/core";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
+import RequestLocation from "../componets/request-location";
 import { PositionContext } from "../contexts/position";
 
 const container = {
@@ -19,7 +20,7 @@ function LeafledMap() {
   return (
     <>
       {position.latitude === 0 ? (
-        <p css={{ fontSize: "0.8em" }}>Please allow location access</p>
+        <RequestLocation />
       ) : (
         <Map
           css={container}

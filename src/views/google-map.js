@@ -3,6 +3,7 @@ import React from "react";
 import { jsx } from "@emotion/core";
 import GoogleMapsApiLoader from "google-maps-api-loader";
 
+import RequestLocation from "../componets/request-location";
 import { PositionContext } from "../contexts/position";
 
 const container = {
@@ -45,7 +46,7 @@ function GoogleMap() {
   return (
     <>
       {position.latitude === 0 ? (
-        <p css={{ fontSize: "0.8em" }}>Please allow location access</p>
+        <RequestLocation />
       ) : (
         <div css={container} ref={mapContainerRef} />
       )}
