@@ -42,7 +42,15 @@ function GoogleMap() {
     });
   }, [googleMap, mapContainerRef]);
 
-  return <div css={container} ref={mapContainerRef} />;
+  return (
+    <>
+      {position.latitude === 0 ? (
+        <p css={{ fontSize: "0.8em" }}>Please allow location access</p>
+      ) : (
+        <div css={container} ref={mapContainerRef} />
+      )}
+    </>
+  );
 }
 
 export default GoogleMap;
