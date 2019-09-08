@@ -36,7 +36,9 @@ function GoogleMap() {
       map: map
     });
     const InfoWindow = new googleMap.maps.InfoWindow({
-      content: `<div id="content"> You are Here! 🕵️</div>`
+      content: `<div id="content"> You are Here! <span role="img" aria-label="emoji dot position">
+      🕵 ️
+    </span></div>`
     });
     marker.addListener("click", () => {
       InfoWindow.open(map, marker);
