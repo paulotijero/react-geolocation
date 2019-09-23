@@ -15,8 +15,6 @@ const container = {
 function LeafledMap() {
   const position = React.useContext(PositionContext);
 
-  console.log(position);
-
   return (
     <>
       {position.latitude === 0 ? (
@@ -29,7 +27,7 @@ function LeafledMap() {
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors | Made for Codeable'
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors | Made for <a href="https://twitter.com/paulotijero">@paulotijero</a>'
           />
           <Marker position={[position.latitude, position.longitude]}>
             <Popup>
