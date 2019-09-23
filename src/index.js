@@ -6,6 +6,7 @@ import { Global } from "@emotion/core";
 import LeafleMap from "./views/leaflet-map";
 import GoogleMap from "./views/google-map";
 import Header from "./componets/header";
+import SEO from "./componets/seo";
 import { PositionProvider } from "./contexts/position";
 
 const global = {
@@ -19,6 +20,7 @@ function App() {
   return (
     <PositionProvider>
       <Global styles={global} />
+      <SEO />
       <Header />
       <Router>
         <LeafleMap path="/" />
