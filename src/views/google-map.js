@@ -14,7 +14,7 @@ const container = {
 function GoogleMap() {
   const position = React.useContext(PositionContext);
   const [googleMap, setGoogleMap] = React.useState(null);
-  const apiKey = "AIzaSyAv78f8NYP2cdwJmoZLrw7FFsSX5gGD8CE";
+  const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
   const mapContainerRef = React.useRef(null);
 
   React.useEffect(() => {
