@@ -1,4 +1,5 @@
 import React from "react";
+import ReactGA from "react-ga";
 import { render } from "react-dom";
 import { Router } from "@reach/router";
 import { Global } from "@emotion/core";
@@ -28,5 +29,7 @@ function App() {
   );
 }
 
-const $root = document.getElementById("root");
-render(<App />, $root);
+render(<App />, document.getElementById("root"));
+
+ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_KEY);
+ReactGA.pageview(window.location.pathname + window.location.search);
