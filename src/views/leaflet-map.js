@@ -16,7 +16,7 @@ function LeafledMap() {
   const position = React.useContext(PositionContext);
 
   return (
-    <>
+    <React.Fragment>
       {position.latitude === 0 ? (
         <RequestLocation />
       ) : (
@@ -39,7 +39,7 @@ function LeafledMap() {
           </Marker>
         </Map>
       )}
-    </>
+    </React.Fragment>
   );
 }
 

@@ -21,7 +21,7 @@ function GoogleMap() {
     GoogleMapsApiLoader({ apiKey }).then(google => {
       setGoogleMap(google);
     });
-  }, []);
+  }, [apiKey]);
 
   React.useEffect(() => {
     if (!googleMap || !mapContainerRef.current) return;
@@ -43,16 +43,16 @@ function GoogleMap() {
     marker.addListener("click", () => {
       InfoWindow.open(map, marker);
     });
-  }, [googleMap, mapContainerRef]);
+  }, [googleMap, mapContainerRef, position.latitude, position.longitude]);
 
   return (
-    <>
+    <React.Fragment>
       {position.latitude === 0 ? (
         <RequestLocation />
       ) : (
         <div css={container} ref={mapContainerRef} />
       )}
-    </>
+    </React.Fragment>
   );
 }
 
