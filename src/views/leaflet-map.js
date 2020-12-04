@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import React from "react";
 import { jsx } from "@emotion/core";
-import { Map, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 import RequestLocation from "../componets/request-location";
 import { PositionContext } from "../contexts/position";
@@ -20,7 +20,7 @@ function LeafledMap() {
       {position.latitude === 0 ? (
         <RequestLocation />
       ) : (
-        <Map
+        <MapContainer
           css={container}
           center={[position.latitude, position.longitude]}
           zoom={15}
@@ -37,7 +37,7 @@ function LeafledMap() {
               </span>
             </Popup>
           </Marker>
-        </Map>
+        </MapContainer>
       )}
     </React.Fragment>
   );
